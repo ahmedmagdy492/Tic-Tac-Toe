@@ -1,0 +1,56 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="./style.css">
+        <title>Tic Tac Toe</title>
+    </head>
+    <body style="overflow: hidden;">
+        <div class="overlay" style="position: absolute;width: 90000px;height: 90000px;background: rgba(9, 38, 58, 0.5);top: 0;left: 0;z-index: -1;">
+        </div>
+        <div id="screen" style="display: none;">
+            <ul id="menu-bar">
+                <li style="cursor: pointer;" onclick="location.reload()">Reset</li>
+                <li id="player-turn">Player Turn</li>
+                <li>Game State: <span id="game-state" style="color: red;">Not Playing</span></li>
+                <li id="game-mode-ui"></li>
+            </ul>
+            <div id="game-screen">
+
+            </div>
+        </div>
+        <div id="start-screen" style="height: 80vh;">
+            <h1 style="color: #fff;font-size: 50px;margin: 10px;text-align: center;">Tic Tac Toe</h1>
+            <div style="display: flex;justify-content: center;align-items: center;height: 80vh;">
+                <button style="margin: 5px;background: #dba925;width: fit-content;border-radius: 7px;font-size: 16px;color: #000;height: fit-content;font-weight: bold;border: none" id="start-game-com-hard">Vs Computer Hard</button>
+                <button style="margin: 5px;width: fit-content;background: #dba925;border-radius: 7px;font-size: 16px;color: #000;height: fit-content;font-weight: bold;border: none" id="start-game-com-easy">Vs Computer Easy</button>
+                <button style="margin: 5px;width: fit-content;background: #dba925;border-radius: 7px;color: #000;font-size: 16px;height: fit-content;font-weight: bold;border: none" id="start-game-player">Vs Player</button>
+            </div>
+        </div>
+        <script src="js/UI.js"></script>
+        <script src="js/Player.js"></script>
+        <script src="js/Game.js"></script>
+        <script>
+            window.addEventListener('load', function() {
+                document.querySelector('#start-game-com-hard').addEventListener('click', function() {
+                    document.querySelector('#start-screen').style.display = 'none';
+                    document.querySelector('#screen').style.display = 'block';
+                    let game = new Game();
+                    game.start('com-hard');
+                });
+
+                document.querySelector('#start-game-com-easy').addEventListener('click', function() {
+                    document.querySelector('#start-screen').style.display = 'none';
+                    document.querySelector('#screen').style.display = 'block';
+                    let game = new Game();
+                    game.start('com-easy');
+                });
+
+                document.querySelector('#start-game-player').addEventListener('click', function() {
+                    document.querySelector('#start-screen').style.display = 'none';
+                    document.querySelector('#screen').style.display = 'block';
+                    let game = new Game();
+                    game.start('player');
+                });
+            });
+        </script>
+    </body>
+</html>
