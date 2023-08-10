@@ -34,7 +34,7 @@ function Game() {
 
         const firstColCheck = checkWrapper(plays[0][0], plays[1][0], plays[2][0]);
         const secondColCheck = checkWrapper(plays[0][1], plays[1][1], plays[2][1]);
-        const thirdColCheck = checkWrapper(plays[0][2] === plays[1][2] === plays[2][2]);
+        const thirdColCheck = checkWrapper(plays[0][2], plays[1][2], plays[2][2]);
 
         const rightDiagnolCheck = checkWrapper(plays[0][2], plays[1][1], plays[2][0]);
         const leftDiagnolCheck = checkWrapper(plays[0][0], plays[1][1], plays[2][2]);
