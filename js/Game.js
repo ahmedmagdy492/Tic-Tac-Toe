@@ -271,11 +271,11 @@ function Game() {
                         else if(gameMode == 'com-hard'){
                             let positionToPlay = doesHeHave2InARow(players[0].getPlayerSymbol());
     
-                            if(bestLocation == 10) {
+                            if(max == 10) {
                                 plays[bestLocation.i][bestLocation.j] = playerTurn.getPlayerSymbol();
                                 ui.displayPlays(plays);
                             }
-                            else if(bestLocation != 10 && positionToPlay != null) {
+                            else if(max != 10 && positionToPlay != null) {
                                 plays[positionToPlay.i][positionToPlay.j] = playerTurn.getPlayerSymbol();
                                 ui.displayPlays(plays);
                             }
