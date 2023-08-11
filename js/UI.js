@@ -119,7 +119,7 @@ function UI() {
         }
     }
 
-    this.start = function(playerTurnSymbol) {
+    this.start = function() {
         const parent = document.querySelector('#game-screen');
 
         for(let btn of parent.children) {
