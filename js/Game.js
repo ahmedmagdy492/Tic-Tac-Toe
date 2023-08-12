@@ -127,6 +127,27 @@ function Game() {
         ai.playBestMove(plays, players);
         ui.displayPlays(plays);
 
+         // checking has someone won
+         winValue = Util.checkWinPossability(plays, players);
+         if(winValue != null && winValue != 'tie') {
+             ui.showMessage(`${winValue} Won`);
+ 
+             let playAgain = confirm("Do you want to play again?");
+             if(playAgain) {
+                 location.reload();
+             }
+             return;
+         }
+         else if(winValue == 'tie') {
+             ui.showMessage("It's a Tie");
+ 
+             let playAgain = confirm("Do you want to play again?");
+             if(playAgain) {
+                 location.reload();
+             }
+             return;
+         }
+
         // changing the turn again
         playerTurn = players[0] == playerTurn ? players[1] : players[0];
         ui.setPlayerTurn(playerTurn.getPlayerName() + ": " + playerTurn.getPlayerSymbol());
